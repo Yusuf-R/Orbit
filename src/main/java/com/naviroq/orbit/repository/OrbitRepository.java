@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public class OrbitRepository extends JpaRepository <Orbit, UUID> {
+public interface OrbitRepository extends JpaRepository <Orbit, UUID> {
     // this will be use to query the database of Orbit table, using the UUID as our id
 }

@@ -7,6 +7,8 @@ import org.hibernate.validator.constraints.Length;
 
 import java.time.LocalDate;
 
+// When an API call is requested for Orbit Creation, this is what we expect the client should send
+// we will also validate that what he sends meets the validation criteria
 // this dto will be used to validate the api request and the structure expected from the API call upon POST request
 public record CreateOrbitRequestDto(
         @NotBlank(message = ERR_TITLE_BLANK)

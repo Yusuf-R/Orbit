@@ -13,7 +13,7 @@ import java.util.UUID;
 
 // see it like your database model
 @Entity
-@Table (name = "orbits")
+@Table(name = "orbit")
 @NoArgsConstructor // constructor without args
 @AllArgsConstructor // constructor with all the args passed
 @Getter
