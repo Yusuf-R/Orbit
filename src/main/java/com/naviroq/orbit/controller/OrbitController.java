@@ -43,15 +43,24 @@ public class OrbitController {
 
     }
 
+    // Get a single task
+    @GetMapping("/{orbitId}")
+    public ResponseEntity<OrbitDto> getOrbit(@PathVariable UUID orbitId) {
+        Orbit orbit = orbitService.getOrbitById(orbitId);
+        OrbitDto orbitDto = orbitMapper.toDto(orbit);
+        return new ResponseEntity<>(orbitDto, HttpStatus.FOUND);
+    }
+
+    // Get a list of ALL orbits
     @GetMapping
-    public ResponseEntity<List<OrbitDto>> listOrbits() {
+    public ResponseEntity <List<OrbitDto>> listOrbits() {
         List<Orbit> orbits = orbitService.listOrbits();
         List<OrbitDto> orbitDtos = orbits.stream().map(orbitMapper::toDto).toList();
         return ResponseEntity.ok(orbitDtos);
     }
 
     @PutMapping(path = "/{orbitId}")
-    public ResponseEntity<OrbitDto> updateOrbit(
+    public ResponseEntity <OrbitDto> updateOrbit(
             @PathVariable UUID orbitId,
             @Valid @RequestBody UpdateOrbitRequestDto updateOrbitRequestDto
     ) {
